@@ -10,6 +10,9 @@
 #include <stdio.h>
 #include <pthread.h>
 
+#include <SDL.h>
+#include <SDL_thread.h>
+
 #include <android/log.h>
 #include <android/native_window.h>
 #include <android/native_window_jni.h>
