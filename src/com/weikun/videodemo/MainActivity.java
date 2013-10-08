@@ -23,6 +23,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 	private static native void nativeVideoStop();
 	
 	static {
+		System.loadLibrary("SDL");
 		System.loadLibrary("ffmpegutils");
 	}
 
