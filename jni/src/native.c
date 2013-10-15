@@ -358,8 +358,8 @@ void openAVfile(){
 	    exit(1);
 	}
 
-	//if(avformat_open_input(&pFormatCtx, "file:/sdcard/Samsung/Video/Wonders_of_Nature.mp4", NULL, NULL)!=0){
-	if(avformat_open_input(&pFormatCtx, "file:/sdcard/sample_mpeg4.mp4", NULL, NULL)!=0){
+	if(avformat_open_input(&pFormatCtx, "file:/sdcard/Samsung/Video/Wonders_of_Nature.mp4", NULL, NULL)!=0){
+	//if(avformat_open_input(&pFormatCtx, "file:/sdcard/sample_mpeg4.mp4", NULL, NULL)!=0){
 		LOGE("Couldn't open file");
 		return;
 	}
@@ -462,14 +462,16 @@ void Java_com_weikun_videodemo_MainActivity_nativeVideoStop(JNIEnv * env, jobjec
 	stop = 1;
 }
 
+/*
 int Java_com_weikun_videodemo_MainActivity_nativeInit(JNIEnv * env,
 		jobject this) {
 
 	// open default video file
-	openAVfile();
+	//openAVfile();
 
 	return 0;
 }
+*/
 
 void Java_com_weikun_videodemo_MainActivity_nativeSurfaceInit(JNIEnv *env, jobject thiz, jobject surface) {
 
@@ -509,4 +511,18 @@ void Java_com_weikun_videodemo_MainActivity_nativeSurfaceFinalize(JNIEnv *env, j
 	ANativeWindow_release(native_window);
 	native_window = NULL;
 	//data->initialized = FALSE;
+}
+
+int main(int argc, char *argv[]) {
+
+  openAVfile();
+
+  //av_strlcpy(is->filename,argv[1],sizeof(is->filename));
+
+  //....
+  //av_strlcpy(is->filename,argv[1],sizeof(is->filename));
+
+  //pstrcpy(is->filename, sizeof(is->filename), argv[1]);
+
+  return 0;
 }
