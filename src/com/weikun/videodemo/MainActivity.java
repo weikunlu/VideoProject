@@ -1,7 +1,5 @@
 package com.weikun.videodemo;
 
-import org.libsdl.app.SDLActivity;
-
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
@@ -100,12 +98,6 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 		Log.i(TAG, "surfaceDestroyed");
 		nativeSurfaceFinalize();
 	}
-
-	//called from C
-	public static boolean createGLContext(int majorVersion, int minorVersion) {
-		Log.i(TAG, "majorVersion:"+majorVersion +" majorVersion:"+minorVersion);
-        return false;
-    }
 	
 	public static boolean setActivityTitle(String title) {
         // Called from SDLMain() thread and can't directly affect the view
@@ -119,6 +111,12 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback {
 	
     public static Surface getNativeSurface() {
         return null;
+    }
+    
+	//called from C
+	public static boolean createGLContext(int majorVersion, int minorVersion, int[] attribs) {
+		Log.i(TAG, "majorVersion:"+majorVersion +" majorVersion:"+minorVersion);
+        return false;
     }
     
     public static void flipBuffers() {

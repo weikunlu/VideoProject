@@ -25,7 +25,7 @@
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 
-#define SDL_AUDIO_BUFFER_SIZE 1024
+#define SDL_AUDIO_BUFFER_SIZE 4096
 #define MAX_AUDIO_FRAME_SIZE 192000
 
 typedef struct PacketQueue {
@@ -358,8 +358,9 @@ void openAVfile(){
 	    exit(1);
 	}
 
-	if(avformat_open_input(&pFormatCtx, "file:/sdcard/Samsung/Video/Wonders_of_Nature.mp4", NULL, NULL)!=0){
+	//if(avformat_open_input(&pFormatCtx, "file:/sdcard/Samsung/Video/Wonders_of_Nature.mp4", NULL, NULL)!=0){
 	//if(avformat_open_input(&pFormatCtx, "file:/sdcard/sample_mpeg4.mp4", NULL, NULL)!=0){
+	if(avformat_open_input(&pFormatCtx, "file:/sdcard/QuickTime_test5_3m2s_MPEG4ASP_CBR_314kbps_640x480_30fps_AAC-LCv4_CBR_96kbps_Mono_48000Hz.mp4", NULL, NULL)!=0){
 		LOGE("Couldn't open file");
 		return;
 	}
